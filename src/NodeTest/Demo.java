@@ -23,7 +23,7 @@ public class Demo {
         int[] arr2 = {6,4,3,2,1,7};
 
         System.out.println(findRepeated(array));
-        System.out.println(sumFinder(arr2, 9));
+        System.out.println(sumFinder2(arr2, 9));
     }
 
         // 1- given an array of integers find the most repeated number
@@ -72,6 +72,21 @@ public class Demo {
             } else {
                 return true;
             }
+        }
+        return false;
+    }
+
+    public static boolean sumFinder2(int[] array, int value){
+
+        HashMap<Integer, Boolean> map = new HashMap<>();
+
+        for (int i =0; i<array.length; i++){
+            int jackpot = value - array[i];
+
+            if (map.containsKey(jackpot)){
+                return true;
+            }
+            map.put(array[i], true);
         }
         return false;
     }
