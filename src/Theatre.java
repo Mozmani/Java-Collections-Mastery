@@ -22,18 +22,27 @@ public class Theatre {
     }
 
     public boolean reserveSeat(String seatNumber){
-        Seat requestSeat = null;
-        for(Seat seat: seats){
-            if (seat.getSeatNumber().equals(seatNumber)){
-                requestSeat = seat;
-                break;
-            }
-        }
-        if(requestSeat == null){
-            System.out.println("There is no seat " + seatNumber);
+        Seat requestSeat = new Seat(seatNumber);
+        int foundSeat = Collections.binarySearch(seats, requestSeat, null);
+
+        if (foundSeat >=0){
+            return seats.get(foundSeat).reserve();
+        } else {
             return false;
         }
-        return requestSeat.reserve();
+
+        // replaced by binary search
+//        for(Seat seat: seats){
+//            if (seat.getSeatNumber().equals(seatNumber)){
+//                requestSeat = seat;
+//                break;
+//            }
+//        }
+//        if(requestSeat == null){
+//            System.out.println("There is no seat " + seatNumber);
+//            return false;
+//        }
+//        return requestSeat.reserve();
     }
 
     public void getSeats(){
@@ -42,9 +51,14 @@ public class Theatre {
         }
     }
 
-    private class Seat{
+    private class Seat implements Comparable<Seat>{
         private final String seatNumber;
         private boolean reserved;
+
+        @Override
+        public int compareTo(Seat seat) {
+            return this.seatNumber.compareToIgnoreCase(seat.seatNumber);
+        }
 
         public Seat(String seatNumber){
             this.seatNumber = seatNumber;
@@ -73,6 +87,8 @@ public class Theatre {
         public String getSeatNumber() {
             return seatNumber;
         }
+
+
     }
 
 
