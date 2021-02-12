@@ -22,8 +22,24 @@ public class Demo {
         int[] array = {4,4,4,5,6,6,6,1,1,4,4,4,4,5};
         int[] arr2 = {6,4,3,2,1,7};
 
-        System.out.println(findRepeated(array));
-        System.out.println(sumFinder2(arr2, 9));
+        //System.out.println(findRepeated(array));
+        //System.out.println(sumFinder2(arr2, 9));
+
+        BST bst = new BST();
+
+        bst.add(5);
+        bst.add(3);
+        bst.add(7);
+        bst.add(2);
+        bst.add(4);
+        bst.add(6);
+        bst.add(8);
+
+        bst.traverseTree(bst.root);
+        System.out.println();
+        bst.invertTree(bst.root);
+        bst.traverseTree(bst.root);
+
     }
 
         // 1- given an array of integers find the most repeated number
