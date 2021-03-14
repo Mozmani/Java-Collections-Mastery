@@ -1,10 +1,7 @@
 package NodeTest;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Demo {
     public static void main(String[] args) {
@@ -106,4 +103,30 @@ public class Demo {
         }
         return false;
     }
-    }
+
+//    public static List<Records> mergeRecords(List<Records> list){
+//
+//        List<Records> mergedList = new List<records>();
+//        String currentWord = "";
+//        ArrayList<String> companyList = new ArrayList<>();
+//        for (int i =0; i < list.size(); i++){
+//            int j =0;
+//            while (list.get(i).get(j) != " "){
+//                currentWord += list.get(i).get(j);
+//                j++;
+//            }
+//            if(currentWord == "***") {
+//                currentWord =" ";
+//                continue;
+//            }
+//            if (!companyList.contains(currentWord)){
+//                companyList.add(currentWord);
+//                mergedList.add(list.get(i));
+//            }
+//            currentWord =" ";
+//
+//        }
+//
+//        return mergedList;
+//    }
+}
