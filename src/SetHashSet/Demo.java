@@ -95,5 +95,18 @@ public class Demo {
             System.out.println("\t" + moon.getName());
         }
 
+        // set allows two pluto's if equals and hashcode are not overridden.
+        HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
+        planets.add(pluto);
+
+        for (HeavenlyBody planet : planets){
+            System.out.println(planet.getName() + ": " + planet.getOrbitalPeriod());
+        }
+
+        // if two objects compare equal they must have the same hashcode.
+        Object o = new Object();
+        o.equals(o);
+        "Pluto".equals("");
+
     }
 }
