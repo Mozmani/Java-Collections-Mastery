@@ -39,14 +39,18 @@ public abstract class HeavenlyBody {
             return true;
         }
 
-        System.out.println("obj.getClass() is " + obj.getClass());
-        System.out.println("this.getClass() is " + this.getClass());
-        if ((obj == null) || (obj.getClass() != this.getClass())) {
-            return false;
+//        System.out.println("obj.getClass() is " + obj.getClass());
+//        System.out.println("this.getClass() is " + this.getClass());
+//        if ((obj == null) || (obj.getClass() != this.getClass())) {
+//            return false;
+//        }
+
+        if (obj instanceof HeavenlyBody){
+            HeavenlyBody compareObj = (HeavenlyBody) obj;
+            return compareObj.getKey().equals(this.key);
         }
 
-        HeavenlyBody compareObj = (HeavenlyBody) obj;
-        return compareObj.getKey().equals(this.key);
+        return false;
     }
 
     @Override
