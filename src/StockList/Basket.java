@@ -26,7 +26,7 @@ public class Basket {
         if (item != null && quantity > 0){
             // check if we already have item in basket
             int inBasket = list.getOrDefault(item, 0);
-            int newQuantity = inBasket + quantity;
+            int newQuantity = inBasket - quantity;
 
             if (newQuantity > 0){
                 list.put(item, newQuantity);
@@ -39,7 +39,9 @@ public class Basket {
         return 0;
         }
 
-
+    public void clearBasket(){
+        this.list.clear();
+    }
 
     public Map<StockItem, Integer> Items(){
         return Collections.unmodifiableMap(list);
